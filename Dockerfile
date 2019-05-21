@@ -74,6 +74,10 @@ RUN jupyter notebook --version \
  && dpkg-query -l > /dpkg-query-l.txt \
  && pip3 freeze > /pip3-freeze.txt
 
+COPY . /srv/
+RUN rm -rf /srv/Dockerfile
+RUN rm -rf /srv/LICENSE
+RUN rm -rf /srv/README.md
 # publicly accessible on any IP
 ENV IP=0.0.0.0
 # accessible only from localhost
